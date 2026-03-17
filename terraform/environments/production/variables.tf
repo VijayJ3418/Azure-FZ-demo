@@ -134,7 +134,7 @@ variable "firezone_admin_username" {
 variable "firezone_vm_size" {
   description = "VM size for Firezone Gateway"
   type        = string
-  default     = "Standard_B2s"
+  default     = "Standard_D2s_v3"
 }
 
 variable "firezone_api_url" {
@@ -180,17 +180,4 @@ variable "jenkins_dns_record" {
   description = "DNS record name for Jenkins"
   type        = string
   default     = "jenkins-azure"
-}
-
-# VM Size Variables
-variable "jenkins_vm_size" {
-  description = "VM size for Jenkins server"
-  type        = string
-  default     = "Standard_D2s_v3"
-}
-
-variable "firezone_vm_size" {
-  description = "VM size for Firezone Gateway"
-  type        = string
-  default     = "Standard_D2s_v3"
 }
