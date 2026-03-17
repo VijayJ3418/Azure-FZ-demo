@@ -52,7 +52,7 @@ variable "ssh_public_key_content" {
 variable "vm_size" {
   description = "VM size for Firezone Gateway"
   type        = string
-  default     = "Standard_B2s"
+  default     = "Standard_D2s_v3"
 }
 
 variable "firezone_api_url" {
