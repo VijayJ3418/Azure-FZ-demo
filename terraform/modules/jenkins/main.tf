@@ -45,7 +45,7 @@ resource "azurerm_linux_virtual_machine" "jenkins" {
 
   admin_ssh_key {
     username   = var.admin_username
-    public_key = file(var.ssh_public_key_path)
+    public_key = var.ssh_public_key_content != "" ? var.ssh_public_key_content : file(var.ssh_public_key_path)
   }
 
   os_disk {
@@ -185,13 +185,14 @@ resource "azurerm_key_vault" "jenkins_certs" {
 # Get current Azure client configuration
 data "azurerm_client_config" "current" {}
 
-# Store certificate in Key Vault
+# Store certificate in Key Vault (only if certificate content is provided)
 resource "azurerm_key_vault_certificate" "jenkins" {
+  count        = var.certificate_content != "" ? 1 : 0
   name         = "${var.project_name}-jenkins-cert"
   key_vault_id = azurerm_key_vault.jenkins_certs.id
 
   certificate {
-    contents = file(var.certificate_path)
+    contents = var.certificate_content
   }
 
   depends_on = [azurerm_key_vault.jenkins_certs]

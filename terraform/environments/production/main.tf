@@ -89,6 +89,7 @@ module "jenkins_stack" {
   
   admin_username           = var.jenkins_admin_username
   ssh_public_key_path      = var.ssh_public_key_path
+  ssh_public_key_content   = var.ssh_public_key_content
   
   os_disk_size_gb          = var.jenkins_os_disk_size_gb
   data_disk_size_gb        = var.jenkins_data_disk_size_gb
@@ -96,7 +97,9 @@ module "jenkins_stack" {
   vm_size                  = var.jenkins_vm_size
   
   certificate_path         = var.certificate_path
+  certificate_content      = var.certificate_content
   certificate_key_path     = var.certificate_key_path
+  certificate_key_content  = var.certificate_key_content
   
   dns_zone_id              = azurerm_private_dns_zone.dglearn.id
   dns_zone_name            = azurerm_private_dns_zone.dglearn.name
@@ -120,6 +123,7 @@ module "firezone_gateway" {
   
   admin_username         = var.firezone_admin_username
   ssh_public_key_path    = var.ssh_public_key_path
+  ssh_public_key_content = var.ssh_public_key_content
   
   firezone_api_url       = var.firezone_api_url
   firezone_enrollment_token = var.firezone_enrollment_token

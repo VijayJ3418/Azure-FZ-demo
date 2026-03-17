@@ -39,6 +39,14 @@ variable "admin_username" {
 variable "ssh_public_key_path" {
   description = "Path to SSH public key"
   type        = string
+  default     = ""  # Optional - can be omitted if using ssh_public_key_content
+}
+
+variable "ssh_public_key_content" {
+  description = "SSH public key content (alternative to ssh_public_key_path for cloud deployment)"
+  type        = string
+  sensitive   = true
+  default     = ""
 }
 
 variable "os_disk_size_gb" {
@@ -62,11 +70,27 @@ variable "vm_size" {
 variable "certificate_path" {
   description = "Path to SSL certificate file (PEM format with full chain)"
   type        = string
+  default     = ""  # Optional - can be omitted if using certificate_content
+}
+
+variable "certificate_content" {
+  description = "SSL certificate content (PEM format with full chain) - use this for cloud deployment"
+  type        = string
+  sensitive   = true
+  default     = ""
 }
 
 variable "certificate_key_path" {
   description = "Path to SSL certificate private key"
   type        = string
+  default     = ""  # Optional - can be omitted if using certificate_key_content
+}
+
+variable "certificate_key_content" {
+  description = "SSL certificate private key content - use this for cloud deployment"
+  type        = string
+  sensitive   = true
+  default     = ""
 }
 
 variable "dns_zone_id" {

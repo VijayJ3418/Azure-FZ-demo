@@ -39,6 +39,14 @@ variable "admin_username" {
 variable "ssh_public_key_path" {
   description = "Path to SSH public key"
   type        = string
+  default     = ""  # Optional - can be omitted if using ssh_public_key_content
+}
+
+variable "ssh_public_key_content" {
+  description = "SSH public key content (alternative to ssh_public_key_path for cloud deployment)"
+  type        = string
+  sensitive   = true
+  default     = ""
 }
 
 variable "vm_size" {

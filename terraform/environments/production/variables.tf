@@ -94,11 +94,27 @@ variable "jenkins_vm_size" {
 variable "certificate_path" {
   description = "Path to SSL certificate file (full chain: Root + Intermediate + Leaf)"
   type        = string
+  default     = ""
+}
+
+variable "certificate_content" {
+  description = "SSL certificate content (PEM format) - use this for cloud deployments"
+  type        = string
+  sensitive   = true
+  default     = ""
 }
 
 variable "certificate_key_path" {
   description = "Path to SSL certificate private key"
   type        = string
+  default     = ""
+}
+
+variable "certificate_key_content" {
+  description = "SSL certificate private key content - use this for cloud deployments"
+  type        = string
+  sensitive   = true
+  default     = ""
 }
 
 # Firezone Variables
@@ -132,10 +148,18 @@ variable "firezone_enrollment_token" {
   sensitive   = true
 }
 
-# SSH Key Variable
+# SSH Key Variables
 variable "ssh_public_key_path" {
   description = "Path to SSH public key file"
   type        = string
+  default     = ""
+}
+
+variable "ssh_public_key_content" {
+  description = "SSH public key content - use this for cloud deployments instead of path"
+  type        = string
+  sensitive   = true
+  default     = ""
 }
 
 # DNS Variables
