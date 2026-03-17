@@ -204,7 +204,7 @@ resource "azurerm_route_table" "vnet1_routes" {
   tags = var.tags
 }
 
-resource "azurerm_route_table_association" "vnet1_gateway" {
+resource "azurerm_subnet_route_table_association" "vnet1_gateway" {
   subnet_id      = azurerm_subnet.vnet1_gateway.id
   route_table_id = azurerm_route_table.vnet1_routes.id
 }
@@ -223,7 +223,7 @@ resource "azurerm_route_table" "vnet2_routes" {
   tags = var.tags
 }
 
-resource "azurerm_route_table_association" "vnet2_jenkins" {
+resource "azurerm_subnet_route_table_association" "vnet2_jenkins" {
   subnet_id      = azurerm_subnet.vnet2_jenkins.id
   route_table_id = azurerm_route_table.vnet2_routes.id
 }
