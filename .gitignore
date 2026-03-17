@@ -11,9 +11,11 @@
 crash.log
 crash.*.log
 
-# Exclude all .tfvars files from version control unless explicitly committed
+# Exclude all .tfvars files from version control (use TF Cloud UI instead)
 *.tfvars
 *.tfvars.json
+terraform.tfvars
+terraform.tfvars.json
 
 # Ignore override files (when no explicit values)
 override.tf

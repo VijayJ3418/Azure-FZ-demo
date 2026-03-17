@@ -101,7 +101,7 @@ resource "azurerm_lb" "jenkins_ilb" {
   name                = "ilb-${var.project_name}-jenkins"
   location            = var.azure_region
   resource_group_name = var.resource_group
-  load_balancer_type  = "Internal"
+  sku                 = "Standard"
 
   frontend_ip_configuration {
     name                          = "ILBFrontend"
