@@ -181,3 +181,16 @@ variable "jenkins_dns_record" {
   type        = string
   default     = "jenkins-azure"
 }
+
+# VM Size Variables
+variable "jenkins_vm_size" {
+  description = "VM size for Jenkins server"
+  type        = string
+  default     = "Standard_D2s_v3"
+}
+
+variable "firezone_vm_size" {
+  description = "VM size for Firezone Gateway"
+  type        = string
+  default     = "Standard_D2s_v3"
+}
