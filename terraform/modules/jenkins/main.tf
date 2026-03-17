@@ -45,7 +45,7 @@ resource "azurerm_linux_virtual_machine" "jenkins" {
 
   admin_ssh_key {
     username   = var.admin_username
-    public_key = var.ssh_public_key_content != "" ? var.ssh_public_key_content : file(var.ssh_public_key_path)
+    public_key = var.ssh_public_key_content != "" ? var.ssh_public_key_content : try(file(var.ssh_public_key_path), "ERROR: SSH public key not provided. Set ssh_public_key_content variable.")
   }
 
   os_disk {
