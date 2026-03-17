@@ -57,7 +57,7 @@ resource "azurerm_linux_virtual_machine" "jenkins" {
   source_image_reference {
     publisher = "OpenLogic"
     offer     = "RockyLinux-x86"
-    sku       = "rocky-8-LVM"  # Use Rocky Linux 8
+    sku       = "Rocky-8-LVM"  # Use Rocky Linux 8
     version   = "latest"
   }
 

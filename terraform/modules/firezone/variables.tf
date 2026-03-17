@@ -69,7 +69,7 @@ variable "firezone_enrollment_token" {
 variable "jenkins_vnet_cidr" {
   description = "CIDR block of Jenkins VNet for egress rules"
   type        = string
-  default     = "30.30.30.0/16"
+  default     = "30.30.0.0/16"
 }
 
 variable "tags" {

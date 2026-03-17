@@ -121,7 +121,7 @@ resource "azurerm_linux_virtual_machine" "firezone" {
   source_image_reference {
     publisher = "OpenLogic"
     offer     = "RockyLinux-x86"
-    sku       = "rocky-8-LVM"
+    sku       = "Rocky-8-LVM"
     version   = "latest"
   }
 
