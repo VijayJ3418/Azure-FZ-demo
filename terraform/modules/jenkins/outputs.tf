@@ -42,7 +42,7 @@ output "key_vault_uri" {
 
 output "certificate_id" {
   description = "Certificate ID in Key Vault"
-  value       = azurerm_key_vault_certificate.jenkins.id
+  value       = var.certificate_content != "" ? azurerm_key_vault_certificate.jenkins[0].id : null
 }
 
 output "data_disk_id" {
