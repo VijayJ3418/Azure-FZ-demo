@@ -189,41 +189,5 @@ resource "azurerm_subnet_network_security_group_association" "vnet2_jenkins" {
   network_security_group_id = azurerm_network_security_group.vnet2_jenkins_nsg.id
 }
 
-# Route Tables to facilitate inter-VPC traffic
-resource "azurerm_route_table" "vnet1_routes" {
-  name                = "${var.vnet1_name}-routes"
-  location            = var.azure_region
-  resource_group_name = var.resource_group_1
-
-  route {
-    name                   = "to-jenkins-vnet"
-    address_prefix         = var.vnet2_cidr
-    next_hop_type          = "VirtualNetworkPeering"
-  }
-
-  tags = var.tags
-}
-
-resource "azurerm_subnet_route_table_association" "vnet1_gateway" {
-  subnet_id      = azurerm_subnet.vnet1_gateway.id
-  route_table_id = azurerm_route_table.vnet1_routes.id
-}
-
-resource "azurerm_route_table" "vnet2_routes" {
-  name                = "${var.vnet2_name}-routes"
-  location            = var.azure_region
-  resource_group_name = var.resource_group_2
-
-  route {
-    name                   = "to-firezone-vnet"
-    address_prefix         = var.vnet1_cidr
-    next_hop_type          = "VirtualNetworkPeering"
-  }
-
-  tags = var.tags
-}
-
-resource "azurerm_subnet_route_table_association" "vnet2_jenkins" {
-  subnet_id      = azurerm_subnet.vnet2_jenkins.id
-  route_table_id = azurerm_route_table.vnet2_routes.id
-}
+# Note: Route propagation is automatic with VNet peering via allow_forwarded_traffic
+# No explicit route tables needed for peered VNets
