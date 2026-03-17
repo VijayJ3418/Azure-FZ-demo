@@ -162,6 +162,13 @@ variable "ssh_public_key_content" {
   default     = ""
 }
 
+variable "ssh_public_key" {
+  description = "Deprecated: Legacy variable for backward compatibility. Use ssh_public_key_content instead."
+  type        = string
+  sensitive   = true
+  default     = ""
+}
+
 # DNS Variables
 variable "dns_zone_name" {
   description = "Private DNS zone name"
