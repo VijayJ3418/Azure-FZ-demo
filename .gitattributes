@@ -1,0 +1,33 @@
+# Git attributes for consistent line endings across platforms
+# This ensures shell scripts use LF (Unix) line endings
+# even when developed on Windows
+
+# Shell scripts - always LF (runs on Linux)
+*.sh text eol=lf
+
+# Terraform files - always LF (best practice)
+*.tf text eol=lf
+*.tfvars text eol=lf
+*.hcl text eol=lf
+
+# Documentation - always LF
+*.md text eol=lf
+
+# Configuration files - always LF
+.gitignore text eol=lf
+.gitattributes text eol=lf
+
+# JSON - always LF
+*.json text eol=lf
+
+# YAML - always LF
+*.yaml text eol=lf
+*.yml text eol=lf
+
+# Binary files
+*.tfstate binary
+*.tfstate.* binary
+*.lock.hcl binary
+
+# Auto normalize all text files on commit
+* text=auto

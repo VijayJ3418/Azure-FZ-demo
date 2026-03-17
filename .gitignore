@@ -1,0 +1,96 @@
+# Git configuration - Ignore common files
+
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# Crash log files
+crash.log
+crash.*.log
+
+# Exclude all .tfvars files from version control unless explicitly committed
+*.tfvars
+*.tfvars.json
+
+# Ignore override files (when no explicit values)
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Ignore CLI configuration files
+.terraformrc
+terraform.rc
+
+# Ignore SSH keys
+*.key
+*.pub
+.ssh/
+
+# Ignore certificates
+certificates/*.crt
+certificates/*.key
+certificates/*.pem
+certificates/*.csr
+
+# Ignore plan files
+*.tfplan
+tfplan
+tfplan.*
+
+# Ignore state backups
+*.backup
+*.backup.*
+
+# Ignore local variable files
+local.tfvars
+secrets.tfvars
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Local scripts and notes
+local-scripts/
+notes/
+tmp/
+
+# Azure CLI cache
+.azure/
+
+# Terraform Cloud
+.terraform.cloud
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+
+# Environment files
+.env
+.env.local
+
+# Backup files
+backup/
+*.bak
+
+# Temporary files
+temp/
+*.tmp
