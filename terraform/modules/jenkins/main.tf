@@ -55,9 +55,9 @@ resource "azurerm_linux_virtual_machine" "jenkins" {
   }
 
   source_image_reference {
-    publisher = "OpenLogic"
-    offer     = "RockyLinux-x86"
-    sku       = "Rocky-8-LVM"  # Use Rocky Linux 8
+    publisher = "Canonical"
+    offer     = "0001-com-ubuntu-server-jammy"
+    sku       = "22_04-lts-gen2"  # Ubuntu 22.04 LTS
     version   = "latest"
   }
 
